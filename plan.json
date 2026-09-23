@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "devices": [
+    "lab-nexus-a",
+    "lab-nexus-b"
+  ],
+  "target_versions": {
+    "lab-nexus-a": "DEMO-TARGET",
+    "lab-nexus-b": "DEMO-TARGET"
+  },
+  "allowed_changes": [
+    {
+      "device": "lab-nexus-a",
+      "collection": "interfaces",
+      "item": "Ethernet1/2",
+      "before": "up",
+      "after": "down",
+      "reason": "Fictional change LAB-001: unused lab connection decommissioned."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+---
+- name: Collect read-only Cisco IOS maintenance evidence
+  hosts: ios_lab
+  gather_facts: false
+  serial: 1
+  any_errors_fatal: true
+  connection: ansible.netcommon.network_cli
+  vars:
+    ansible_network_os: cisco.ios.ios
+    collection_phase: before
+  tasks:
+    - name: Require explicit lab authorization and a valid phase
+      ansible.builtin.assert:
+        that:
+          - lab_authorized | default(false) | bool
+          - collection_phase in ['before', 'after']
+        fail_msg: Use an authorized lab and set lab_authorized=true explicitly.
+
+    - name: Create a unique local evidence directory
+      ansible.builtin.tempfile:
+        state: directory
+        prefix: ios-evidence-
+      delegate_to: localhost
+      connection: local
+      register: evidence_dir
+
+    - name: Collect version, hardware inventory and port state
+      cisco.ios.ios_command:
+        commands:
+          - show version
+          - show inventory
+          - show interfaces status
+      register: evidence
+      changed_when: false
+
+    - name: Save evidence on the controller
+      ansible.builtin.copy:
+        content: "{{ {'phase': collection_phase, 'device': inventory_hostname, 'commands': ['show version', 'show inventory', 'show interfaces status'], 'stdout': evidence.stdout} | to_nice_json }}"
+        dest: "{{ evidence_dir.path }}/evidence.json"
+        mode: '0600'
+      delegate_to: localhost
+      connection: local
+
+    - name: Show evidence location
+      ansible.builtin.debug:
+        msg: "Local evidence saved to {{ evidence_dir.path }}/evidence.json"

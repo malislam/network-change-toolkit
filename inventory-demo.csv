@@ -1,0 +1,4 @@
+asset_id,platform,version,approved_version,owner,last_verified,support_end,license_renewal
+lab-switch-a,Cisco Catalyst,DEMO-OLD,DEMO-TARGET,Network team,2026-09-20,2027-06-30,2026-10-15
+lab-switch-b,Cisco Nexus,DEMO-TARGET,DEMO-TARGET,Network team,2026-08-01,2026-09-01,2027-03-01
+lab-firewall-a,Palo Alto,DEMO-TARGET,DEMO-TARGET,,2026-09-20,,
