@@ -1,0 +1,52 @@
+{
+  "rules": [
+    {
+      "id": "R1",
+      "source": "edge",
+      "destination": "cameras",
+      "service": "video-tcp",
+      "action": "allow",
+      "log": true
+    },
+    {
+      "id": "R2",
+      "source": "edge",
+      "destination": "cloud",
+      "service": "https",
+      "action": "allow",
+      "log": true
+    },
+    {
+      "id": "R3",
+      "source": "jump-host",
+      "destination": "edge",
+      "service": "ssh",
+      "action": "allow",
+      "log": true
+    },
+    {
+      "id": "R4",
+      "source": "jump-host",
+      "destination": "cameras",
+      "service": "https",
+      "action": "allow",
+      "log": true
+    },
+    {
+      "id": "R5",
+      "source": "edge",
+      "destination": "resolver",
+      "service": "dns",
+      "action": "allow",
+      "log": true
+    },
+    {
+      "id": "R6",
+      "source": "cameras",
+      "destination": "resolver",
+      "service": "dns",
+      "action": "allow",
+      "log": true
+    }
+  ]
+}

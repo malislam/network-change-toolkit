@@ -4,6 +4,10 @@ Small tools for reviewing switch maintenance evidence and finding inventory reco
 
 My background includes Cisco campus/core refresh work and Ansible switch upgrades across eight sites. This repository is a **new demonstration**, not the original automation or data from those environments. All devices, versions, dates, and plans in the samples are fictional.
 
+## Security design + automation
+
+[Start with the security design case study](security-design.md): a fictional camera/edge network, an approved access matrix, and a Python check that detects policy drift, missing access, missing logging, and shadowed rules.
+
 ## Start here
 
 | Example | Purpose | Run without hardware? |

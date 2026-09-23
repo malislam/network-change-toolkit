@@ -1,0 +1,55 @@
+{
+  "zones": [
+    "cameras",
+    "edge",
+    "corporate",
+    "guest",
+    "jump-host",
+    "cloud",
+    "resolver"
+  ],
+  "services": [
+    "video-tcp",
+    "https",
+    "ssh",
+    "dns"
+  ],
+  "approved_flows": [
+    {
+      "source": "edge",
+      "destination": "cameras",
+      "service": "video-tcp",
+      "reason": "Edge initiates collection from cameras."
+    },
+    {
+      "source": "edge",
+      "destination": "cloud",
+      "service": "https",
+      "reason": "Edge sends data to an approved application endpoint."
+    },
+    {
+      "source": "jump-host",
+      "destination": "edge",
+      "service": "ssh",
+      "reason": "Approved administrator maintenance through the jump host."
+    },
+    {
+      "source": "jump-host",
+      "destination": "cameras",
+      "service": "https",
+      "reason": "Approved camera administration."
+    },
+    {
+      "source": "edge",
+      "destination": "resolver",
+      "service": "dns",
+      "reason": "Use the internal resolver."
+    },
+    {
+      "source": "cameras",
+      "destination": "resolver",
+      "service": "dns",
+      "reason": "Use the internal resolver."
+    }
+  ]
+}

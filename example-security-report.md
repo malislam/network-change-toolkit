@@ -1,0 +1,62 @@
+# Security policy review
+
+Result: REVIEW REQUIRED
+- UNAPPROVED: cameras -> edge -> video-tcp permitted by TEMP-ANY
+- NO LOGGING: cameras -> edge -> video-tcp; rule TEMP-ANY
+- UNAPPROVED: cameras -> edge -> https permitted by TEMP-ANY
+- NO LOGGING: cameras -> edge -> https; rule TEMP-ANY
+- UNAPPROVED: cameras -> edge -> ssh permitted by TEMP-ANY
+- NO LOGGING: cameras -> edge -> ssh; rule TEMP-ANY
+- UNAPPROVED: cameras -> edge -> dns permitted by TEMP-ANY
+- NO LOGGING: cameras -> edge -> dns; rule TEMP-ANY
+- UNAPPROVED: edge -> edge -> video-tcp permitted by TEMP-ANY
+- NO LOGGING: edge -> edge -> video-tcp; rule TEMP-ANY
+- UNAPPROVED: edge -> edge -> https permitted by TEMP-ANY
+- NO LOGGING: edge -> edge -> https; rule TEMP-ANY
+- UNAPPROVED: edge -> edge -> ssh permitted by TEMP-ANY
+- NO LOGGING: edge -> edge -> ssh; rule TEMP-ANY
+- UNAPPROVED: edge -> edge -> dns permitted by TEMP-ANY
+- NO LOGGING: edge -> edge -> dns; rule TEMP-ANY
+- BLOCKED: edge -> cloud -> https; matched implicit deny
+- UNAPPROVED: corporate -> edge -> video-tcp permitted by TEMP-ANY
+- NO LOGGING: corporate -> edge -> video-tcp; rule TEMP-ANY
+- UNAPPROVED: corporate -> edge -> https permitted by TEMP-ANY
+- NO LOGGING: corporate -> edge -> https; rule TEMP-ANY
+- UNAPPROVED: corporate -> edge -> ssh permitted by TEMP-ANY
+- NO LOGGING: corporate -> edge -> ssh; rule TEMP-ANY
+- UNAPPROVED: corporate -> edge -> dns permitted by TEMP-ANY
+- NO LOGGING: corporate -> edge -> dns; rule TEMP-ANY
+- UNAPPROVED: guest -> edge -> video-tcp permitted by TEMP-ANY
+- NO LOGGING: guest -> edge -> video-tcp; rule TEMP-ANY
+- UNAPPROVED: guest -> edge -> https permitted by TEMP-ANY
+- NO LOGGING: guest -> edge -> https; rule TEMP-ANY
+- UNAPPROVED: guest -> edge -> ssh permitted by TEMP-ANY
+- NO LOGGING: guest -> edge -> ssh; rule TEMP-ANY
+- UNAPPROVED: guest -> edge -> dns permitted by TEMP-ANY
+- NO LOGGING: guest -> edge -> dns; rule TEMP-ANY
+- UNAPPROVED: jump-host -> edge -> video-tcp permitted by TEMP-ANY
+- NO LOGGING: jump-host -> edge -> video-tcp; rule TEMP-ANY
+- UNAPPROVED: jump-host -> edge -> https permitted by TEMP-ANY
+- NO LOGGING: jump-host -> edge -> https; rule TEMP-ANY
+- NO LOGGING: jump-host -> edge -> ssh; rule TEMP-ANY
+- UNAPPROVED: jump-host -> edge -> dns permitted by TEMP-ANY
+- NO LOGGING: jump-host -> edge -> dns; rule TEMP-ANY
+- UNAPPROVED: cloud -> edge -> video-tcp permitted by TEMP-ANY
+- NO LOGGING: cloud -> edge -> video-tcp; rule TEMP-ANY
+- UNAPPROVED: cloud -> edge -> https permitted by TEMP-ANY
+- NO LOGGING: cloud -> edge -> https; rule TEMP-ANY
+- UNAPPROVED: cloud -> edge -> ssh permitted by TEMP-ANY
+- NO LOGGING: cloud -> edge -> ssh; rule TEMP-ANY
+- UNAPPROVED: cloud -> edge -> dns permitted by TEMP-ANY
+- NO LOGGING: cloud -> edge -> dns; rule TEMP-ANY
+- UNAPPROVED: resolver -> edge -> video-tcp permitted by TEMP-ANY
+- NO LOGGING: resolver -> edge -> video-tcp; rule TEMP-ANY
+- UNAPPROVED: resolver -> edge -> https permitted by TEMP-ANY
+- NO LOGGING: resolver -> edge -> https; rule TEMP-ANY
+- UNAPPROVED: resolver -> edge -> ssh permitted by TEMP-ANY
+- NO LOGGING: resolver -> edge -> ssh; rule TEMP-ANY
+- UNAPPROVED: resolver -> edge -> dns permitted by TEMP-ANY
+- NO LOGGING: resolver -> edge -> dns; rule TEMP-ANY
+- UNREACHED: R3; review order/shadowing within this model
+
+Offline design check only; not proof of live enforcement or compliance.
