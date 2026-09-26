@@ -2,18 +2,27 @@
 
 Practical examples for reviewing network changes, checking segmentation rules, and preparing device inventory for maintenance and renewals.
 
+**Explore:** [Project map](#project-map) · [Quick start](#quick-start) · [How the tools connect](#how-the-pieces-fit-together) · [Security review](#security-design-and-automation) · [Nexus review](#nexus-change-review) · [Inventory review](#inventory-and-renewal-checks) · [Ansible lab](#ansible-lab-example)
+
 My background includes Cisco campus/core refreshes, firewall and VPN support, and Ansible switch upgrades across eight sites. I put this toolkit together around the questions I would want answered before closing a change: did the expected network state come back, did access stay within the approved design, and what still needs attention?
 
 These are new portfolio demonstrations using fictional data, not code or configurations from former employers.
 
-## What you can do with it
+## What this project demonstrates
+
+- **Change validation:** compare planned work with before/after evidence and keep missing observations visible.
+- **Security review:** test ordered access rules against a separate approved-flow matrix and explain each finding.
+- **Lifecycle visibility:** surface version drift, stale inventory, missing ownership, and approaching support dates.
+- **Operational discipline:** pair automation with runbooks, rollback thinking, explicit limits, and human approval.
+
+## Project map
 
 | Example | What it helps you achieve | Start here |
 | --- | --- | --- |
-| Security design and access checks | Compare proposed rules against approved flows; flag unexpected access, blocked requirements, missing logging, and shadowed rules | [Design and diagram](security-design.md) · [Example findings](example-security-report.md) |
-| Nexus change review | Compare before/after evidence for two peers and separate expected changes from regressions or missing evidence | [Example report](example-nexus-report.md) · [Python tool](review.py) |
-| Inventory and renewals | Find version differences, stale records, missing owners, and approaching support or renewal dates | [Example report](example-inventory-report.md) · [Sample inventory](inventory-demo.csv) |
-| Ansible maintenance collection | Collect read-only IOS version, inventory, and interface information in an authorized lab | [Playbook](ios-maintenance-checks.yml) · [Upgrade runbook](upgrade-runbook.md) |
+| Security design and access checks | Compare proposed rules against approved flows; flag unexpected access, blocked requirements, missing logging, and shadowed rules | [Read the design](security-design.md) · [View example findings](example-security-report.md) |
+| Nexus change review | Compare before/after evidence for two peers and separate expected changes from regressions or missing evidence | [View example report](example-nexus-report.md) · [Open the Python tool](review.py) |
+| Inventory and renewals | Find version differences, stale records, missing owners, and approaching support or renewal dates | [View example report](example-inventory-report.md) · [Open sample inventory](inventory-demo.csv) |
+| Ansible maintenance collection | Collect read-only IOS version, inventory, and interface information in an authorized lab | [Open the playbook](ios-maintenance-checks.yml) · [Read the upgrade runbook](upgrade-runbook.md) |
 
 The Python examples run locally without hardware, credentials, or external packages. The Ansible example requires a lab and has not been executed against a switch.
 
