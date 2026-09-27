@@ -2,7 +2,7 @@
 
 Practical examples for reviewing network changes, checking segmentation rules, and preparing device inventory for maintenance and renewals.
 
-**Explore:** [Project map](#project-map) · [Quick start](#quick-start) · [How the tools connect](#how-the-pieces-fit-together) · [Security review](#security-design-and-automation) · [Nexus review](#nexus-change-review) · [Inventory review](#inventory-and-renewal-checks) · [Ansible lab](#ansible-lab-example)
+**Explore:** [Project map](#project-map) · [Quick start](#quick-start) · [How the tools connect](#how-the-pieces-fit-together) · [3850 case study](#catalyst-3850-upgrade-case-study) · [Security review](#security-design-and-automation) · [Nexus review](#nexus-change-review) · [Inventory review](#inventory-and-renewal-checks) · [Ansible lab](#ansible-lab-example)
 
 My background includes Cisco campus/core refreshes, firewall and VPN support, and Ansible switch upgrades across eight sites. I put this toolkit together around the questions I would want answered before closing a change: did the expected network state come back, did access stay within the approved design, and what still needs attention?
 
@@ -19,6 +19,7 @@ These are new portfolio demonstrations using fictional data, not code or configu
 
 | Example | What it helps you achieve | Start here |
 | --- | --- | --- |
+| Catalyst 3850 upgrade case study | See how I structured Ansible-assisted switch maintenance across eight office locations while keeping approval, exceptions, validation, and handoff visible | [Read the case study](catalyst-3850-ansible-upgrade-case-study.md) · [Open the read-only collector](ios-maintenance-checks.yml) |
 | Security design and access checks | Compare proposed rules against approved flows; flag unexpected access, blocked requirements, missing logging, and shadowed rules | [Read the design](security-design.md) · [View example findings](example-security-report.md) |
 | Nexus change review | Compare before/after evidence for two peers and separate expected changes from regressions or missing evidence | [View example report](example-nexus-report.md) · [Open the Python tool](review.py) |
 | Inventory and renewals | Find version differences, stale records, missing owners, and approaching support or renewal dates | [View example report](example-inventory-report.md) · [Open sample inventory](inventory-demo.csv) |
@@ -79,6 +80,12 @@ flowchart TD
 ```
 
 These are separate tools with explicit inputs. The Ansible playbook does not automatically feed the Nexus or security models.
+
+## Catalyst 3850 upgrade case study
+
+The [case study](catalyst-3850-ansible-upgrade-case-study.md) describes how I used Ansible to support Cisco Catalyst 3850 upgrades across eight Fried Frank office locations. It covers the operational problem, my role, phased collection and execution, post-change validation, exception handling, and handoff.
+
+The case study does not include employer configurations or the original playbook, and it does not claim an unverified time-savings metric. The repository's IOS playbook is a new read-only example that demonstrates the evidence-collection phase safely.
 
 ## Security design and automation
 
